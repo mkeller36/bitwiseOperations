@@ -4,8 +4,7 @@
 
 #define BITVALUE(X, N) (((X) >> (N)) & 0x1)
 
-void main(void){
-    uint32_t x = 42;    /* 101010 or 0x2a*/
+void printBitInfo(int x){
     printf("x = %d \n", x);
 
     int numBits = sizeof(x) * 8;
@@ -13,12 +12,16 @@ void main(void){
         printf("%d",BITVALUE(x,(numBits-1)-i));
     }
     printf("\n");
-    printf("You see a lot of leading zeros in this because we are working with a 32 bit number\n");
+}
 
-    uint8_t y = 42;
-    numBits = sizeof(y) * 8;
-    for(uint32_t i = 0; i < numBits; i++){
-        printf("%d",BITVALUE(y,(numBits-1)-i));
+void main(void){
+    uint8_t x = 42;    /* 101010 or 0x2a*/
+
+    printBitInfo(x);
+    x = x | 0x1; /* Set bit one to by useing OR */
+
+    if(x & 0x1){ 
+        printf("bit set sucessful!\n");
     }
-    printf("\n");
+    printBitInfo(x);
 }

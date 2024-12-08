@@ -18,10 +18,15 @@ void main(void){
     uint8_t x = 42;    /* 101010 or 0x2a*/
 
     printBitInfo(x);
-    x = x | 0x1; /* Set bit one to by useing OR */
+    x = x | 0x1; /* Set bit one to one by useing OR */
 
-    if(x & 0x1){ 
-        printf("bit set sucessful!\n");
-    }
+    printBitInfo(x);
+    
+    x = x & ~0x8; /* Set bit 4 to zero using AND ~*/
+
+    printBitInfo(x);
+
+    x = x ^ 0x8;
+
     printBitInfo(x);
 }

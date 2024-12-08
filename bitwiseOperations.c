@@ -8,7 +8,7 @@ void printBitInfo(int x){
     printf("x = %d \n", x);
 
     int numBits = sizeof(x) * 8;
-    for(uint32_t i = 0; i < numBits; i++){
+    for(uint8_t i = 0; i < numBits; i++){
         printf("%d",BITVALUE(x,(numBits-1)-i));
     }
     printf("\n");
@@ -26,7 +26,15 @@ void main(void){
 
     printBitInfo(x);
 
-    x = x ^ 0x8;
+    x = x ^ 0x8; /* Toggle bit using XOR*/
+
+    printBitInfo(x);
+
+    x = x << 2; /* Left Shift */
+
+    printBitInfo(x);
+
+    x = x >> 2; /* Right Shift */
 
     printBitInfo(x);
 }

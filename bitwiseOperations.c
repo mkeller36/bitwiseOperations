@@ -7,7 +7,7 @@
 void printBitInfo(int x){
     printf("x = %d \n", x);
 
-    int numBits = sizeof(x) * 8;
+    uint8_t numBits = sizeof(x) * 8;
     for(uint8_t i = 0; i < numBits; i++){
         printf("%d",BITVALUE(x,(numBits-1)-i));
     }
